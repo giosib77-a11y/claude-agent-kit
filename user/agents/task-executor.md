@@ -20,7 +20,7 @@ model: inherit
 
 3. **Verify.** გაუშვი პროექტის `CLAUDE.md`-ში მითითებული lint, typecheck, tests, build. ჩავარდნილი გაასწორე. ერთსა და იმავე პრობლემაზე **მაქსიმუმ 3 მცდელობა** — მერე გაჩერდი და დააბრუნე `Status: failed`.
 
-4. **Verification hook.** თუ `.claude/hooks/verify.sh`-ში `CHECKS` ცარიელია და სწრაფი შემოწმებები (lint, typecheck, unit tests) უკვე მუშაობს, ჩაწერე ისინი. build და E2E არ ჩაწერო. `CHECKS`-იდან არასდროს ამოიღო შემოწმება იმიტომ, რომ ვარდება.
+4. **Verification hook.** `.claude/hooks/verify.sh`-ს არ შეეხო. თუ `CHECKS` ცარიელია, report-ის `Decisions`-ში ჩაწერე, რომელი ბრძანებები უნდა ჩაწეროს მომხმარებელმა (lint, typecheck, unit tests; test უნდა ეშვებოდეს watch-ის გარეშე).
 
 5. **Simplify.** შეამოწმე: ზედმეტი abstraction, duplicate logic, უსარგებლო folder ან dependency. იპოვე — გაასწორე.
 
@@ -35,6 +35,8 @@ model: inherit
 - ახალი dependency-ის დამატება, თუ task-ი ამას აშკარად არ მოითხოვს
 - `.claude/settings.json`-ის ან permissions-ის შეცვლა
 - თუ გჭირდება ინფორმაცია, ანგარიში, key ან გადაწყვეტილება მომხმარებლისგან
+- `.claude/` საქაღალდის ნებისმიერი ფაილის შეცვლა
+- პროცესის მოკვლა სახელით (`taskkill /IM`, `pkill`, `killall`) — dev server-ი გააჩერე მხოლოდ მისი PID-ით
 
 ახალი იდეა ან "კარგი იქნებოდა" — მხოლოდ `New tasks discovered`-ში, კოდში არა.
 

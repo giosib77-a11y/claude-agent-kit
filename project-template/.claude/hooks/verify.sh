@@ -20,13 +20,16 @@ fi
 
 [ ${#CHECKS[@]} -eq 0 ] && exit 0
 
-cd "${CLAUDE_PROJECT_DIR:-.}" || exit 0
+if ! cd "${CLAUDE_PROJECT_DIR:-.}" 2>/dev/null; then
+  echo "verify.sh: could not cd to project dir. Checks were NOT run." >&2
+  exit 1
+fi
 
 # თუ git-ში ცვლილება არ არის (მაგ. მხოლოდ საუბარი იყო), შემოწმება არ გაეშვება.
 if git rev-parse --is-inside-work-tree >/dev/null 2>&1; then
   [ -z "$(git status --porcelain)" ] && exit 0
 fi
-
+export CI=true
 FAILED=0
 for cmd in "${CHECKS[@]}"; do
   OUTPUT=$(bash -c "$cmd" 2>&1)

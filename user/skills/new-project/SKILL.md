@@ -48,6 +48,7 @@ Stage 1 — MVP
 ## Backlog (needs user decision)
 
 ## Run State
+- Stage: Stage 1 — MVP
 - Finish-check this stage: not run
 - Fix rounds this stage: 0/2
 - Failed attempts: —

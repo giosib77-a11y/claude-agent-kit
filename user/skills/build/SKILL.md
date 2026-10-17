@@ -24,12 +24,14 @@ disable-model-invocation: true
 
 ```markdown
 ## Run State
+- Stage: <Current Stage-ის სახელი>
 - Finish-check this stage: not run | done
 - Fix rounds this stage: 0/2
 - Failed attempts: —
 ```
 
-თუ `Current Stage` შეიცვალა (მომხმარებელმა ახალი stage დაიწყო), `Run State` განულე: `not run`, `0/2`, `—`.
+თუ Run State-ის `Stage` არ ემთხვევა `Current Stage`-ს (მომხმარებელმა ახალი stage დაიწყო), Run State განულე: `not run`, `0/2`, `—`, და `Stage`-ში ჩაწერე მიმდინარე stage.
+ახალი stage-ის დაწყებისას წინა stage-ის task-ები არ წაშალო: გადაიტანე ცალკე სექციაში `## Stage N — Done` ფაილის ბოლოში, ისტორიისთვის.
 
 ## ფაზა 1 — დაგეგმვა
 თუ `PROJECT.md` ან `PROGRESS.md`-ის task-ები არ არსებობს: შეასრულე new-project-ის პროცედურა ($ARGUMENTS-ის ტექსტი = პროექტის აღწერა). **⏸ ყოველთვის გაჩერდი** და დაელოდე მომხმარებლის დადასტურებას. ამ გაშვებაში კოდზე არ გადახვიდე.
@@ -67,6 +69,7 @@ disable-model-invocation: true
 - push, deploy, გლობალური გარემოს შეცვლა მომხმარებლის თანხმობის გარეშე
 - `verify.sh`-ის `CHECKS`-იდან შემოწმების ამოღება, `--no-verify`, ტესტის წაშლა ან გამოტოვება იმისთვის, რომ "გაიაროს"
 - `.claude/settings.json`-ის ან permissions-ის შეცვლა
+- პროცესის მოკვლა სახელით (`taskkill /IM`, `pkill`, `killall`)
 
 ## Report ყოველ ⏸-ზე (ქართულად, მოკლედ)
 - **რატომ გავჩერდი** (წესის ნომერი)

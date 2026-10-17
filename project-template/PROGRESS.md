@@ -8,6 +8,7 @@ Not started — run `/new-project` or `/build <description>`
 ## Backlog (needs user decision)
 
 ## Run State
+- Stage: —
 - Finish-check this stage: not run
 - Fix rounds this stage: 0/2
 - Failed attempts: —
